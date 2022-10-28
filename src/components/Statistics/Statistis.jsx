@@ -9,7 +9,7 @@ export const Statistics = ({chenge, appState}) => {
       }}>
         <h1>Please leave feedback</h1>
         <ul>
-        {Object.keys(appState).map(stat => (<li key={stat}>
+        {appState.map(stat => (<li key={stat}>
             <button name={stat} onClick={chenge}>{stat.toUpperCase()}</button>
           </li>))}
         </ul>
@@ -19,5 +19,5 @@ export const Statistics = ({chenge, appState}) => {
 
   Statistics.propTypes ={
     chenge: PropTypes.func.isRequired,
-    appState: PropTypes.object.isRequired,
+    appState: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   }
